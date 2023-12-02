@@ -7,6 +7,7 @@ edition = "2021"
 clap = { workspace = true }
 duct = { workspace = true }
 eyre = { workspace = true }
+ureq = { workspace = true }
 
 [workspace]
 members = ["solutions/*"]
@@ -16,4 +17,5 @@ clap = { version = "4.4", features = ["derive"] }
 duct = { version = "0.13" }
 eyre = { version = "0.6" }
 itertools = { version = "0.12" }
+ureq = { version = "2.9" }
 winnow = { version = "0.5" }
