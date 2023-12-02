@@ -10,7 +10,7 @@ eyre = { workspace = true }
 ureq = { workspace = true }
 
 [workspace]
-members = ["solutions/*"]
+members = ["day_*"]
 
 [workspace.dependencies]
 clap = { version = "4.4", features = ["derive"] }
