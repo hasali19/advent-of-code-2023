@@ -1,10 +1,15 @@
-fn main() {
-    part_1();
-    part_2();
+use aoc2023::aoc_solution;
+
+fn main() -> eyre::Result<()> {
+    aoc_solution(1, |input| {
+        part_1(input)?;
+        part_2(input)?;
+        Ok(())
+    })
 }
 
-fn part_1() {
-    let sum: u32 = include_str!("../input.txt")
+fn part_1(input: &str) -> eyre::Result<()> {
+    let sum: u32 = input
         .lines()
         .map(|line| {
             let first = line.chars().find_map(|c| c.to_digit(10)).unwrap();
@@ -14,10 +19,12 @@ fn part_1() {
         .sum();
 
     println!("{sum}");
+
+    Ok(())
 }
 
-fn part_2() {
-    let sum: u32 = include_str!("../input.txt")
+fn part_2(input: &str) -> eyre::Result<()> {
+    let sum: u32 = input
         .lines()
         .map(|line| {
             let chars = line.chars().collect::<Vec<char>>();
@@ -36,6 +43,8 @@ fn part_2() {
         .sum();
 
     println!("{sum}");
+
+    Ok(())
 }
 
 fn parse_number_at(input_chars: &[char]) -> Option<u32> {

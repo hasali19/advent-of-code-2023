@@ -1,0 +1,17 @@
+use aoc2023::aoc_solution;
+
+fn main() -> eyre::Result<()> {
+    aoc_solution(<DAY>, |input| {
+        part_1(input)?;
+        part_2(input)?;
+        Ok(())
+    })
+}
+
+fn part_1(input: &str) -> eyre::Result<()> {
+    Ok(())
+}
+
+fn part_2(input: &str) -> eyre::Result<()> {
+    Ok(())
+}

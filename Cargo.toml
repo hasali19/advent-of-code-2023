@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+color-eyre = { version = "0.6" }
 clap = { workspace = true }
 duct = { workspace = true }
 eyre = { workspace = true }
@@ -17,5 +18,6 @@ clap = { version = "4.4", features = ["derive"] }
 duct = { version = "0.13" }
 eyre = { version = "0.6" }
 itertools = { version = "0.12" }
+strum = { version = "0.25", features = ["derive"] }
 ureq = { version = "2.9" }
 winnow = { version = "0.5" }

@@ -27,7 +27,17 @@ fn init(day: u32) -> eyre::Result<()> {
     let aoc_session = env::var("AOC_SESSION")?;
 
     if !solution_path.exists() {
-        cmd!("cargo", "new", solution_path).run()?;
+        cmd!("cargo", "new", &solution_path).run()?;
+
+        std::fs::write(
+            solution_path.join("Cargo.toml"),
+            include_str!("template/Cargo.toml.template").replace("<DAY>", &day.to_string()),
+        )?;
+
+        std::fs::write(
+            solution_path.join("src/main.rs"),
+            include_str!("template/main.rs.template").replace("<DAY>", &day.to_string()),
+        )?;
     }
 
     let input = ureq::get(&input_url)
