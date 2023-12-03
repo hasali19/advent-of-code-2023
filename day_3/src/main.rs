@@ -1,8 +1,9 @@
+#![feature(coroutines, iter_from_coroutine)]
+
 use std::collections::{HashMap, HashSet};
 use std::iter;
 
 use aoc2023::aoc_solution;
-use genawaiter::rc::Gen;
 
 fn main() -> eyre::Result<()> {
     aoc_solution(3, |input| {
@@ -88,12 +89,11 @@ fn parse_input(input: &str) -> (SymbolSet, Numbers) {
 }
 
 fn adjacent(x: usize, y: usize, len: usize) -> impl Iterator<Item = (usize, usize)> {
-    Gen::new(|co| async move {
+    iter::from_coroutine(move || {
         for ax in x.saturating_sub(1)..=x + len {
             for ay in y.saturating_sub(1)..=y + 1 {
-                co.yield_((ax, ay)).await;
+                yield (ax, ay);
             }
         }
     })
-    .into_iter()
 }
