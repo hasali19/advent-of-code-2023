@@ -17,6 +17,7 @@ members = ["day_*"]
 clap = { version = "4.4", features = ["derive"] }
 duct = { version = "0.13" }
 eyre = { version = "0.6" }
+genawaiter = { version = "0.99" }
 itertools = { version = "0.12" }
 strum = { version = "0.25", features = ["derive"] }
 ureq = { version = "2.9" }
