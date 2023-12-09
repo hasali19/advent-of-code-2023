@@ -31,7 +31,7 @@ fn part_1(input: &str) -> eyre::Result<()> {
 
 fn card_score(winning: &HashSet<usize>, owned: &HashSet<usize>) -> usize {
     owned.iter().fold(0, |acc, n| {
-        if winning.contains(&n) {
+        if winning.contains(n) {
             usize::max(1, acc * 2)
         } else {
             acc
@@ -59,9 +59,9 @@ fn part_2(input: &str) -> eyre::Result<()> {
     Ok(())
 }
 
-fn parse_input(
-    input: &str,
-) -> Result<HashMap<usize, (HashSet<usize>, HashSet<usize>)>, ParseError<&str, ErrorKind>> {
+type CardMap = HashMap<usize, (HashSet<usize>, HashSet<usize>)>;
+
+fn parse_input(input: &str) -> Result<CardMap, ParseError<&str, ErrorKind>> {
     let int = || take_while(1.., '0'..='9').parse_to();
     let id = preceded(("Card", space1), int());
 

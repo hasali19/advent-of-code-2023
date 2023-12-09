@@ -8,7 +8,7 @@ struct Args {
     input: Option<PathBuf>,
 }
 
-pub fn aoc_solution<'a>(day: u32, runner: impl Fn(&str) -> eyre::Result<()>) -> eyre::Result<()> {
+pub fn aoc_solution(day: u32, runner: impl Fn(&str) -> eyre::Result<()>) -> eyre::Result<()> {
     color_eyre::install().unwrap();
 
     let args = Args::parse();

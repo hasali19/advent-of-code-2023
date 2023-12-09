@@ -45,7 +45,7 @@ fn init(day: u32) -> eyre::Result<()> {
         .call()?
         .into_string()?;
 
-    std::fs::write(format!("day_{day}/input.txt"), &input)?;
+    std::fs::write(format!("day_{day}/input.txt"), input)?;
 
     Ok(())
 }

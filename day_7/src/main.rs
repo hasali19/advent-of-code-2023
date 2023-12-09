@@ -86,8 +86,7 @@ fn hand_type(hand: &str) -> Vec<u8> {
     hand.chars()
         .into_grouping_map_by(|v| *v)
         .fold(0, |acc, _k, _v| acc + 1)
-        .into_iter()
-        .map(|(_c, n)| n)
+        .into_values()
         .sorted_by_key(|n| Reverse(*n))
         .collect_vec()
 }
@@ -101,8 +100,7 @@ fn hand_type_with_wildcards(hand: &str) -> Vec<u8> {
     let jokers = char_counts.remove(&'J').unwrap_or(0);
 
     let mut char_counts = char_counts
-        .into_iter()
-        .map(|(_c, n)| n)
+        .into_values()
         .sorted_by_key(|n| Reverse(*n))
         .collect_vec();
 

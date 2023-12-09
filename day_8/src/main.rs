@@ -59,7 +59,7 @@ fn part_2(input: &str) -> eyre::Result<()> {
                 |node| node.ends_with('Z'),
             )
         })
-        .reduce(|acc, e| lcm(acc, e))
+        .reduce(lcm)
         .unwrap();
 
     println!("{steps}");
@@ -89,9 +89,9 @@ fn steps<'a>(
         .1
 }
 
-fn parse_instruction(
-    instruction: &str,
-) -> Result<(&str, (&str, &str)), ParseError<&str, ErrorKind>> {
+type Instruction<'a> = (&'a str, (&'a str, &'a str));
+
+fn parse_instruction(instruction: &str) -> Result<Instruction, ParseError<&str, ErrorKind>> {
     let mut parser = separated_pair(
         alphanumeric1,
         " = ",

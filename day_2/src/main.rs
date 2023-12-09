@@ -63,9 +63,9 @@ fn part_2(input: &str) -> eyre::Result<()> {
     Ok(())
 }
 
-fn parse_input(
-    input: &str,
-) -> Result<Vec<(u32, Vec<HashMap<&str, u32>>)>, ParseError<&str, ErrorKind>> {
+type Game<'a> = (u32, Vec<HashMap<&'a str, u32>>);
+
+fn parse_input(input: &str) -> Result<Vec<Game>, ParseError<&str, ErrorKind>> {
     let u32 = || take_while(1.., '0'..='9').parse_to::<u32>();
     let id = preceded("Game ", u32());
 
