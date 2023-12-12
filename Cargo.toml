@@ -21,5 +21,6 @@ itertools = { version = "0.12" }
 num = { version = "0.4" }
 rayon = { version = "1.8.0" }
 strum = { version = "0.25", features = ["derive"] }
+tap = { version = "1.0" }
 ureq = { version = "2.9" }
 winnow = { version = "0.5" }
