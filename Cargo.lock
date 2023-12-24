@@ -374,6 +374,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "day_21"
+version = "0.1.0"
+dependencies = [
+ "aoc2023",
+ "eyre",
+ "itertools",
+ "pathfinding",
+ "strum",
+ "tap",
+ "winnow",
+]
+
+[[package]]
 name = "day_3"
 version = "0.1.0"
 dependencies = [
